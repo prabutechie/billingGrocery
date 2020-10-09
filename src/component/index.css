@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+}
+.banner{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex:1;    
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+}
+
+.softwarename{    
+    flex:0.4;
+}
+
+.companyname{    
+    flex:0.7;
+}
+
+
+
+.body{
+    display: flex;
+}
+.sidemenu{    
+    flex:0.2;
+}
+.mainbody{    
+    flex: 0.8;
+}
+.sidemenu_container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.card_padding{   
+    align-items: center;
+    width:90%;
+    height:100px;     
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.card_padding:nth-child(odd):hover{
+    background-color: indigo;
+}
+.card_padding:nth-child(even):hover{
+    background-color: purple;
+}
+.card_padding:hover > h5{
+    color: white;
+}
+
+.filterform{
+    display: flex;
+    flex-direction: row;    
+}
+

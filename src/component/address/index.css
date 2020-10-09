@@ -1,0 +1,21 @@
+.addressInput{
+    display: flex;  
+    flex-direction: row;     
+    justify-content: space-between; 
+}
+.addressInput > div{
+    width:24%;
+}
+.contactDetails{
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+}
+.contactDetails > div{
+    width:49%
+}
+
+.viewAddress{
+    display: flex;    
+}
+

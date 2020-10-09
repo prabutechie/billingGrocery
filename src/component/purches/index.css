@@ -1,0 +1,63 @@
+.viewItems{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.viewprint{    
+    border: 1px solid black;
+}
+
+.top{
+    display: flex;
+}
+
+
+.address{
+    display: flex;
+    flex:0.6;
+    flex-direction: column;
+}
+
+.invoice{
+    display: flex;
+    flex:0.4;
+    flex-direction: column;
+}
+
+.hr{
+    border:1px solid black;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top:10px;        
+}
+
+.buttons > div{
+    padding:1%;
+}
+
+.invoice-input{
+    display: flex;    
+    flex-direction: row;
+    justify-content: space-between;    
+}
+
+.invoice-input > input {
+    width:49%
+}
+
+.iv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+

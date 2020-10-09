@@ -1,0 +1,4 @@
+.gstMenu{
+    display: flex;
+    flex-direction: row;       
+}

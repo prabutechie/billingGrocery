@@ -1,8 +1,8 @@
-// import Axios from 'axios';
+import Axios from 'axios';
 
-// export const http =  Axios.create({
-//     baseURL:""
-// })
+export const http =  Axios.create({
+    baseURL:"http://localhost:2000/"
+})
 
 
 

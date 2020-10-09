@@ -1,6 +1,6 @@
-// import {createStore,applyMiddleware} from 'redux'
-// import Reducer from './Reducer'
+import {createStore} from 'redux'
+import Reducer from './Reducer'
 
-// const store = createStore(Reducer)
+const store = createStore(Reducer)
 
-// export default store
+export default store

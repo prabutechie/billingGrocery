@@ -1,0 +1,54 @@
+*{
+    border:0px;
+}
+.viewItems{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.viewprint{    
+    border: 1px solid black;
+}
+
+.top{
+    display: flex;
+}
+
+
+.address{
+    display: flex;
+    flex:0.6;
+    flex-direction: column;
+    border-right:1px solid black;
+    border-bottom:1px solid black;
+
+}
+
+.fromaddress{
+    border-bottom:1px solid black;
+    
+}
+.fromaddress > p {
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+.toaddress{
+    
+}
+.toaddress > p,h6{
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.invoice{
+    display: flex;
+    flex:0.4;
+    flex-direction: column;
+    border-bottom:1px solid black;
+}
+
+.hr{
+    border:1px solid black;
+}

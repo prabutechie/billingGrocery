@@ -1,19 +1,39 @@
-// import {type} from './Type'
-// import { Switch } from 'react-router-dom'
+import { sidemenu, newsales, viewproduct,reload } from './Type'
 
 
-// const inittialState = {
-//     typeData:""
-// }
 
-// const Reducer = (state = inittialState, action ){
-//     switch(action.type){
-//         case type:
-//             return {
-//                 typeData:action.data     
-//             }
-//         default : return state 
-//     }
-// }
+const inittialState = {
+    sideMenu: "sales",
+    newSales: false,
+    viewProduct: false,
+    reload: 1
 
-// export default Reducer
+}
+
+const Reducer = (state = inittialState, action) => {
+    switch (action.type) {
+        case sidemenu:
+            return {
+                ...state,
+                sideMenu: action.data
+            }
+        case newsales:
+            return {
+                ...state,
+                newSales: action.data
+            }
+        case viewproduct:
+            return {
+                ...state,
+                viewProduct: action.data
+            }
+        case reload:
+            return {
+                ...state,
+                reload: state.reload * 2 
+            }
+        default: return state
+    }
+}
+
+export default Reducer
