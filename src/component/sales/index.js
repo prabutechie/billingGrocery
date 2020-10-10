@@ -45,8 +45,7 @@ function Sales() {
         // console.log("index Select Data",data)
         if (data) {
             const { _id, __v, ...resData } = data
-            resData.qt = ""
-            resData.rate = ""
+            resData.qt = ""            
             setselectData(resData)
         }
 

@@ -25,11 +25,11 @@ purches.post("/", async (req, res) => {
 
         console.log("AVAILABLE",available)
 
-        if(x.type === "kg" || x.type === "l" ){
-            newAvailable = available.qt + x.qt * 1000  
+        if(x.type === "g" || x.type === "ml" ){
+            newAvailable = available.qt + x.qt / 1000  
         }
                 
-        if(x.type === "pkt" || x.type === "g" || x.type === "ml"){
+        if(x.type === "pkt" || x.type === "kg" || x.type === "l"){
             newAvailable = available.qt + x.qt
         }
         
@@ -106,8 +106,17 @@ purches.delete("/", async (req, res) => {
 
     for (x of items) {
         var available = await productSchema.findOne({ product: x.product })
-        if (available.qt >= x.qt) {
-            const newAvailable = available.qt - x.qt
+
+        if(x.type === "g" || x.type === "ml" ){
+            qt = x.qt / 1000  
+        }
+                
+        if(x.type === "pkt" || x.type === "kg" || x.type === "l"){
+            qt = x.qt
+        }
+
+        if (available.qt >= qt) {
+            const newAvailable = available.qt - qt
             var update = {
                 $set: {
                     qt: newAvailable

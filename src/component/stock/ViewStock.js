@@ -59,14 +59,14 @@ function ViewStock({ reload, Reload, Update }) {
                 <tbody>
                     {
                         stock.map((data) => {
-                            if (data.type === "g" ) {
+                            if (data.type === "kg" ) {
                                 return (
                                     <tr key={data._id}>
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>
                                         <td>{data.rate}</td> 
                                         <td>{data.type}</td>
-                                        <td>{data.qt / 1000} Kg</td>
+                                        <td>{data.qt} Kg</td>
                                         <td className="w3-text-green" onClick={() => Update(data, true)} >
                                             <EditIcon />
                                         </td>
@@ -76,14 +76,14 @@ function ViewStock({ reload, Reload, Update }) {
                                     </tr>
                                 )
                             }
-                            if(data.type === "ml") {
+                            if(data.type === "l") {
                                 return (
                                     <tr key={data._id}>
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>
-                                        <td>{data.rate * 1000}</td>
+                                        <td>{data.rate}</td>
                                         <td>{data.type}</td>
-                                        <td>{data.qt / 1000} L</td>
+                                        <td>{data.qt} L</td>
                                         <td className="w3-text-green" onClick={() => Update(data, true)} >
                                             <EditIcon />
                                         </td>

@@ -86,8 +86,8 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
                                     <Field as="select" name="type" className="form-control">
                                         <option value="">Select Type</option>
                                         <option value="pkt">pkt</option>
-                                        <option value="g">Kg</option>
-                                        <option value="ml">Litre</option>
+                                        <option value="kg">Kg</option>
+                                        <option value="l">Litre</option>
 
                                     </Field>
                                     <ErrorMessage name="type" />

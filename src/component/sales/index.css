@@ -56,6 +56,11 @@
     justify-content: space-evenly;
     align-items: center;
 }
+.perkg{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 
 

@@ -41,17 +41,13 @@ function ViewItem({ reload,Reload }) {
         return (
             <div className="mt-3 w3-container">
                 <table className="w3-table-all">
-                    <thead>
+                <thead>
                         <tr>
                             <th>Product</th>
-                            <th>HSNNO</th>
-                            <th>MRP</th>
+                            <th>HSNNO</th>                            
                             <th>Quantity</th>
-                            <th>Rate</th>
-                            <th>total</th>
-                            <th>GST</th>
-                            <th>total</th>
-                            <th>Action</th>
+                            <th>Rate</th>  
+                            <th>Action</th>                          
                         </tr>
                     </thead>
                     <tbody>
@@ -61,13 +57,9 @@ function ViewItem({ reload,Reload }) {
                                 return (
                                     <tr key={data._id}>
                                         <td>{data.product}</td>
-                                        <td>{data.hsnno}</td>
-                                        <td>{data.mrp}</td>
-                                        <td>{data.qt}</td>
-                                        <td>{data.rate}</td>
-                                        <td>{data.total}</td>
-                                        <td>{data.gst}%</td>
-                                        <td>{data.grandTotal}</td>
+                                        <td>{data.hsnno}</td>                                        
+                                        <td>{data.qt} {data.type}</td>
+                                        <td>{data.rate}</td>                                        
                                         <td>
                                             <DeleteIcon
                                                 className="w3-text-red"
