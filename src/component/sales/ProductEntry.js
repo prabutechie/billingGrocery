@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { http } from '../../axios'
 import * as yup from 'yup'
 
 function ProductEntry({ reloadMethod, selectData, SelectData }) {
     console.log("selectData", selectData)
+
+    const [rates,setRates] = useState(0)
+    const [qt,setQt] = useState(0)
+
+    console.log(rates,qt)
 
 
     const initialValues = {
@@ -19,7 +24,7 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
     const submit = (values, props) => {
 
 
-        http.post("purches/tempItems", values)
+        http.post("sales/tempItems", values)
             .then(res => {
                 reloadMethod(res.data._id)
             })
@@ -27,6 +32,21 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                 console.log(err)
             })
         SelectData(initialValues)
+    }
+
+    const RateCalculate =(qt,type)=>{
+        console.log("RateCalculate",qt,type,selectData)
+        var rate 
+        if(qt && type && selectData){
+            if(type === "ml" || type === "g"){
+                rate = (qt / 1000) * selectData.rate
+                setRates(rate)
+            }
+            if(type === "kg" || type === "l" || type === "pkt" ){
+                rate = qt * selectData.rate
+                setRates(rate)
+            }
+        }
     }
 
 
@@ -47,10 +67,22 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                 validationSchema={validationSchema}
                 enableReinitialize
             >
-                <Form autoComplete="off">
+                <Form autoComplete="off">                   
                     <div className="row">
                         <div className=" col-4 form-group">
-                            <Field name="qt" type="number" className="form-control" placeholder="Quantity" />
+                            {/* <Field name="qt" type="number" className="form-control" placeholder="Quantity" /> */}
+                            <Field name="qt">
+                                {
+                                    formikprops=>{
+                                        console.log(formikprops)
+                                        const {field} = formikprops
+                                        const {value} = field 
+                                        return(
+                                            <input type="number" className="form-control" {...field} placeholder="Enter Quantity" />
+                                        )
+                                    }
+                                }
+                            </Field>
                             <ErrorMessage name="qt" />
                         </div>
                         <div className="form-group col-4">
@@ -62,7 +94,7 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                                 <option value="ml">milli liter</option>
                                 <option value="l">liter</option>
                             </Field>
-                            <ErrorMessage name="qt" />
+                            <ErrorMessage name="type" />
                         </div>
                         <div className=" col-4 form-group">
                             <Field disabled name="rate" type="number" className="form-control" placeholder="Amount" />                                      
@@ -75,7 +107,7 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                         <button type="submit" className="btn w3-deep-orange">Add</button>
                     </div>
                 </Form>
-            </Formik>
+            </Formik>            
         </div>
     )
 }

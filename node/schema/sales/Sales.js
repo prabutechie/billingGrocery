@@ -23,15 +23,7 @@ const sales = mongoose.Schema({
         type:Array,
         required:true
     },
-    Total:{
-        type:Number,
-        required:true
-    },
-    gstTotal:{
-        type:Number,
-        required:true
-    },
-    grandTotal:{
+    total:{
         type:Number,
         required:true
     }

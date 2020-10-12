@@ -14,8 +14,8 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
         type: ""
     }
 
-    const submit = async (values, submitProps) => {     
-        
+    const submit = async (values, submitProps) => {
+
 
 
 
@@ -34,7 +34,7 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
 
     const validationSchema = yup.object({
         product: yup.string().required("Enter Product Name"),
-        hsnno: yup.number().required("Enter HSNNO"),        
+        hsnno: yup.number().required("Enter HSNNO"),
         type: yup.string().required("Enter Type")
     })
 
@@ -60,22 +60,11 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
                                     <Field name="hsnno" type="number" className="form-control" placeholder="Enter HSNNO" />
                                     <ErrorMessage name="hsnno" />
                                 </div>
-                                {
-                                    insert ?
-                                        (
-                                            <div className="form-group">
-                                                <Field disabled name="rate" type="number" className="form-control" placeholder="Enter Rate" />
-                                                <ErrorMessage name="rate" />
-                                            </div>
-                                        )
-                                        :
-                                        (
-                                            <div className="form-group">
-                                                <Field name="rate" type="number" className="form-control" placeholder="Enter Rate" />
-                                                <ErrorMessage name="rate" />
-                                            </div>
-                                        )
-                                }
+                                <div className="form-group">
+                                    <Field name="rate" type="number" className="form-control" placeholder="Enter Rate" />
+                                    <ErrorMessage name="rate" />
+                                </div>
+
 
                                 <div className="form-group">
                                     <Field disabled name="qt" type="number" className="form-control" placeholder="Enter Quantity" />

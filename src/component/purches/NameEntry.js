@@ -30,7 +30,7 @@ function NameEntry({Address}) {
         <div className="container mt-3">            
             <form className="form">
                 <select name="address" onChange={(e) => { ChooseName(e.target.value) }} className="form-control">
-                    <option value="" className="w3-white">Select Company Name</option>
+                    <option value="" className="w3-white">Select Vendors Name</option>
                     {
                         data.map((data, index) => {
                             return (

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import ProductEntry from './ProductEntry'
 import ViewItem from './ViewItem'
-import NameEntry from './NameEntry'
+// import NameEntry from './NameEntry'
 import SelectProduct from './SelectProduct'
 import SelectPayment from './SelectPayment'
 
@@ -51,9 +51,9 @@ function Sales() {
 
     }
 
-    const Address = (address) => {
-        setAddress(address)
-    }
+    // const Address = (address) => {
+    //     setAddress(address)
+    // }
 
     const Payment = (payment) => {
         setPayment(payment)
@@ -130,7 +130,7 @@ function Sales() {
                             <ProductEntry reloadMethod={Reload} selectData={selectData} SelectData={SelectData} />
                             <ViewItem reload={reloadView} Reload={Reload} />
 
-                            <NameEntry Address={Address} />
+                            {/* <NameEntry Address={Address} /> */}
                             <SelectPayment Payment={Payment} />
                             
 
@@ -143,7 +143,7 @@ function Sales() {
                                     <button onClick={CancelBill} className="btn w3-red">Cancel Bill</button>
                                 </div>     
 
-                                <PrintButton address={address}  payment={payment} invoiceDate={MyDate(Date.now())} invoiceNo={invoiceNo} componentRef={componentRef}  Reload={Reload} CloseSales={CloseSales} />
+                                <PrintButton address={NativeAddress}  payment={payment} invoiceDate={MyDate(Date.now())} invoiceNo={invoiceNo} componentRef={componentRef}  Reload={Reload} CloseSales={CloseSales} />
                             </div>
 
                         </div>

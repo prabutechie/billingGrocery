@@ -15,7 +15,7 @@ function Invoice({invoiceNo,invoiceDate,payment}) {
                          <td><b>{invoiceDate}</b></td>
                     </tr>
                     <tr>
-                        <td>Mode of PAyment : </td>
+                        <td>Mode of Payment : </td>
                         <td><b>{payment}</b></td>
                     </tr>
 

@@ -61,7 +61,7 @@ function ViewSales({ reload, Invoice, Reload }) {
                                             <div className="iv">
                                                 <p className="ml-3">Invoice No : <b>{data.invoiceno}</b></p>
                                                 <p>Invoice Date : <b>{MyDate(data.invoicedate)}</b></p>
-                                                <p>Total: <b>{data.grandTotal}</b></p>
+                                                <p>Total: <b>{data.total}</b></p>
 
                                                 <div className="mr-3">
                                                     <button className="w3-text-green mr-3" data-toggle="modal" data-target={`#ids${index}`} ><VisibilityIcon /></button>
@@ -97,7 +97,7 @@ function ViewSales({ reload, Invoice, Reload }) {
                                             <div className="iv">
                                                 <p className="ml-3">Invoice No : <b>{data.invoiceno}</b></p>
                                                 <p>Invoice Date : <b>{MyDate(data.invoicedate)}</b></p>
-                                                <p>Total: <b>{data.grandTotal}</b></p>
+                                                <p>Total: <b>{data.total}</b></p>
 
                                                 <div className="mr-3">
                                                     <button className="w3-text-green mr-3" data-toggle="modal" data-target={`#ids${index}`} ><VisibilityIcon /></button>

@@ -53,13 +53,14 @@ function ViewPurches({ reload, Reload }) {
                         <div>
                             {
                                 filterData.map((data, index) => {
+                                    console.log("viewpurches",data)
                                     return (
                                         <div key={index} className="w3-card mt-3" >
                                             <p className="w3-center w3-indigo pt-3 ">{data.address.name}</p>
                                             <div className="iv">
                                                 <p className="ml-3">Invoice No : <b>{data.invoiceno}</b></p>
                                                 <p>Invoice Date : <b>{data.invoicedate}</b></p>
-                                                <p>Total: <b>{data.grandTotal}</b></p>
+                                                <p>Total: <b>{data.total}</b></p>
 
                                                 <div className="mr-3">
                                                     <button className="w3-text-green mr-3" data-toggle="modal" data-target={`#id${index}`} ><VisibilityIcon /></button>
@@ -95,7 +96,7 @@ function ViewPurches({ reload, Reload }) {
                                             <div className="iv">
                                                 <p className="ml-3">Invoice No : <b>{data.invoiceno}</b></p>
                                                 <p>Invoice Date : <b>{data.invoicedate}</b></p>
-                                                <p>Total: <b>{data.grandTotal}</b></p>
+                                                <p>Total: <b>{data.total}</b></p>
 
                                                 <div className="mr-3">
                                                     <button className="w3-text-green mr-3" data-toggle="modal" data-target={`#id${index}`} ><VisibilityIcon /></button>

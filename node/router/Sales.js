@@ -14,25 +14,34 @@ sales.post("/", async (req, res) => {
 
     const { address, payment, invoiceNo, invoiceDate } = req.body
 
-    var x;
-    var total = 0, gstTotal = 0, grandTotal = 0;
+    var x, newAvailable;
+    var total = 0;
     const count = items.length
     var loopcount = 0
 
     for (x of items) {
+        const type = x.type
         var available = await productSchema.findOne({ product: x.product })
-        const newAvailable = available.qt - x.qt
+        if (type === "ml" || type === "g") {
+            newAvailable = available.qt - (x.qt / 1000)
+        }
+        if (type === "pkt" || type === "kg" || type === "l") {
+            newAvailable = available.qt - x.qt
+        }
+
+        console.log("newAvailable", newAvailable)
+
         var update = {
             $set: {
                 qt: newAvailable
             }
         }
+
         var find = { product: x.product }
         const updateProduct = await productSchema.updateOne(find, update)
 
-        total += x.total
-        gstTotal += x.gstTotal
-        grandTotal += x.grandTotal
+        total += x.rate
+
 
         loopcount += 1
 
@@ -49,13 +58,12 @@ sales.post("/", async (req, res) => {
                 invoiceno: invoiceNo,
                 payment: payment,
                 items: items,
-                Total: total,
-                gstTotal: gstTotal,
-                grandTotal: grandTotal
+                total: total,
+
             }
 
 
-            // console.log(insert)
+            console.log(insert)
 
 
             const InsertData = await new salesSchema(insert)
@@ -83,13 +91,19 @@ sales.delete("/", async (req, res) => {
     //update Product Available
 
     const items = findBill.items
-    var x, count = 0, length = items.length;
+    var x, count = 0, length = items.length, newAvailable;
     // console.log(findBill, items)
 
     for (x of items) {
         var available = await productSchema.findOne({ product: x.product })
 
-        const newAvailable = available.qt + x.qt
+        if (type === "ml" || type === "g") {
+            newAvailable = available.qt + (x.qt / 1000)
+        }
+        if (type === "pkt" || type === "kg" || type === "l") {
+            newAvailable = available.qt + x.qt
+        }
+
         var update = {
             $set: {
                 qt: newAvailable
@@ -115,6 +129,106 @@ sales.delete("/", async (req, res) => {
     }
 
 
+
+})
+
+sales.post("/tempItems", async (req, res) => {
+    console.log(req.body)
+    const { qt, rate, type,...others } = req.body    
+    var insertValues,newRate;
+
+    if (type === "ml" || type === "g") {        
+        newRate = ( qt/1000 ) * rate
+        insertValues = {
+            rate:newRate,
+            type:type,
+            qt:qt,
+            ...others
+            
+        }
+    }
+    if (type === "pkt" || type === "kg" || type === "l") {
+        newRate = qt * rate
+        insertValues = {
+            rate:newRate,
+            type:type,
+            qt:qt,
+            ...others
+        }
+    }
+
+    console.log(insertValues)
+
+
+
+    //update Product Collection
+    // const updateProducts = async() => {
+    // console.log("updateProducts")
+    //     findProduct = await productSchema.findOne({ product: product })
+    //     if (findProduct) {
+    //         //update Product Quantity
+    //         prevQt = findProduct.qt
+    //         newQt = prevQt + qt
+
+    //         const updateQt = await productSchema.updateOne({ product: product }, { $set: { qt: newQt } })
+    // console.log(updateQt)
+
+    //     }
+    //     if (!findProduct) {
+    //         // insert New Product
+    //         const insert = await new productSchema({
+    //             product:product,
+    //             hsnno:hsnno,
+    //             mrp:mrp,
+    //             qt:qt,
+    //             rate:rate,
+    //             gst:gst
+    //         })
+    //         await insert.save((err, doc) => {
+    //             if (err) {
+    // console.log("error", err)                   
+    //             }
+    //             if (doc) {
+    // console.log("doc", doc)                   
+
+    //             }
+    //         })
+    //     }
+    // }
+
+    //Insert tempItem Collection
+
+
+
+
+    const insert = await new tempItem(insertValues)
+    console.log(insert)
+
+    await insert.save((err, doc) => {
+        if (err) {
+            console.log(err)
+            res.status(404).send(err)
+        }
+        if (doc) {
+            res.status(200).send(doc)
+            // updateProducts()
+        }
+    })
+    
+})
+
+sales.get("/tempItems", async (req, res) => {
+    const get = await tempItem.find()
+    res.status(200).send(get)
+})
+
+sales.put("/tempItems", async (req, res) => {
+
+})
+
+sales.delete("/tempItems", async (req, res) => {
+    const deleteItem = await tempItem.deleteOne({ _id: req.query.id })
+    res.status(200).send(deleteItem)
 
 })
 
