@@ -126,7 +126,7 @@ function Sales() {
                             <button onClick={CloseSales} className="btn w3-red w3-right"> <CloseIcon /> Close</button>
                         </div>
                         <div className="w3-container mt-1">
-                            <SelectProduct SelectData={SelectData} />
+                            <SelectProduct SelectData={SelectData} reload={reloadView}/>
                             <ProductEntry reloadMethod={Reload} selectData={selectData} SelectData={SelectData} />
                             <ViewItem reload={reloadView} Reload={Reload} />
 

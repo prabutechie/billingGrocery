@@ -25,7 +25,7 @@ sales.post("/", async (req, res) => {
         if (type === "ml" || type === "g") {
             newAvailable = available.qt - (x.qt / 1000)
         }
-        if (type === "pkt" || type === "kg" || type === "l") {
+        if (type === "pkt" || type === "kg" || type === "l" || type==="nos") {
             newAvailable = available.qt - x.qt
         }
 
@@ -96,11 +96,11 @@ sales.delete("/", async (req, res) => {
 
     for (x of items) {
         var available = await productSchema.findOne({ product: x.product })
-
+        var type = x.type
         if (type === "ml" || type === "g") {
             newAvailable = available.qt + (x.qt / 1000)
         }
-        if (type === "pkt" || type === "kg" || type === "l") {
+        if (type === "pkt" || type === "kg" || type === "l" || type === "nos") {
             newAvailable = available.qt + x.qt
         }
 
@@ -147,7 +147,7 @@ sales.post("/tempItems", async (req, res) => {
             
         }
     }
-    if (type === "pkt" || type === "kg" || type === "l") {
+    if (type === "pkt" || type === "kg" || type === "l" || type === "nos") {
         newRate = qt * rate
         insertValues = {
             rate:newRate,

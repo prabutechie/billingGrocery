@@ -29,7 +29,7 @@ purches.post("/", async (req, res) => {
             newAvailable = available.qt + x.qt / 1000  
         }
                 
-        if(x.type === "pkt" || x.type === "kg" || x.type === "l"){
+        if(x.type === "pkt" || x.type === "kg" || x.type === "l" || type==="nos"){
             newAvailable = available.qt + x.qt
         }
         
@@ -111,7 +111,7 @@ purches.delete("/", async (req, res) => {
             qt = x.qt / 1000  
         }
                 
-        if(x.type === "pkt" || x.type === "kg" || x.type === "l"){
+        if(x.type === "pkt" || x.type === "kg" || x.type === "l" || type==="nos"){
             qt = x.qt
         }
 

@@ -111,6 +111,24 @@ function ViewStock({ reload, Reload, Update }) {
                                 )
                             }
 
+                            if(data.type==="nos"){
+                                return (
+                                    <tr key={data._id}>
+                                        <td>{data.product}</td>
+                                        <td>{data.hsnno}</td>
+                                        <td>{data.rate}</td>
+                                        <td>{data.type}</td>
+                                        <td>{data.qt} Nos</td>
+                                        <td className="w3-text-green" onClick={() => Update(data, true)} >
+                                            <EditIcon />
+                                        </td>
+                                        <td className="w3-text-red" onClick={() => Delete(data._id, data.qt)}>
+                                            <DeleteIcon />
+                                        </td>
+                                    </tr>
+                                )
+                            }
+
                         })
                     }
                 </tbody>

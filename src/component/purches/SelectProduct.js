@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { http } from '../../axios'
 
-function SelectProduct({SelectData}) {
+function SelectProduct({SelectData,reload}) {
 
     const [data,setData] = useState([])
     
@@ -16,6 +16,10 @@ function SelectProduct({SelectData}) {
             })
     },[])
 
+    useEffect(()=>{
+        document.getElementById("selectProducts").reset()
+    },[reload])
+
     const SelectProduct=(index)=>{
         // console.log("Select Product",data[index])        
         SelectData(data[index])
@@ -23,7 +27,7 @@ function SelectProduct({SelectData}) {
     }
     return (
         <div className="container mt-3">
-            <form className="form">
+            <form className="form" id="selectProducts">
                 <div className="form-group">
                     <select onChange={(e)=>SelectProduct(e.target.value)} className="form-control">
                         <option>Select Product</option>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { http } from '../../axios'
 import * as yup from 'yup'
@@ -6,10 +6,10 @@ import * as yup from 'yup'
 function ProductEntry({ reloadMethod, selectData, SelectData }) {
     console.log("selectData", selectData)
 
-    const [rates,setRates] = useState(0)
-    const [qt,setQt] = useState(0)
+    // const [rates,setRates] = useState(0)
+    // const [qt,setQt] = useState(0)
 
-    console.log(rates,qt)
+    // console.log(rates,qt)
 
 
     const initialValues = {
@@ -34,20 +34,25 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
         SelectData(initialValues)
     }
 
-    const RateCalculate =(qt,type)=>{
-        console.log("RateCalculate",qt,type,selectData)
-        var rate 
-        if(qt && type && selectData){
-            if(type === "ml" || type === "g"){
-                rate = (qt / 1000) * selectData.rate
-                setRates(rate)
-            }
-            if(type === "kg" || type === "l" || type === "pkt" ){
-                rate = qt * selectData.rate
-                setRates(rate)
-            }
-        }
+    const ResetData =()=>{
+        SelectData(initialValues)
+        reloadMethod(initialValues)
     }
+
+    // const RateCalculate =(qt,type)=>{
+    //     console.log("RateCalculate",qt,type,selectData)
+    //     var rate 
+    //     if(qt && type && selectData){
+    //         if(type === "ml" || type === "g"){
+    //             rate = (qt / 1000) * selectData.rate
+    //             setRates(rate)
+    //         }
+    //         if(type === "kg" || type === "l" || type === "pkt" || type==="nos" ){
+    //             rate = qt * selectData.rate
+    //             setRates(rate)
+    //         }
+    //     }
+    // }
 
 
 
@@ -70,8 +75,8 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                 <Form autoComplete="off">                   
                     <div className="row">
                         <div className=" col-4 form-group">
-                            {/* <Field name="qt" type="number" className="form-control" placeholder="Quantity" /> */}
-                            <Field name="qt">
+                            <Field name="qt" type="number" className="form-control" placeholder="Quantity" />
+                            {/* <Field name="qt">
                                 {
                                     formikprops=>{
                                         console.log(formikprops)
@@ -82,7 +87,7 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                                         )
                                     }
                                 }
-                            </Field>
+                            </Field> */}
                             <ErrorMessage name="qt" />
                         </div>
                         <div className="form-group col-4">
@@ -93,6 +98,7 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
                                 <option value="kg">Kilo grams</option>
                                 <option value="ml">milli liter</option>
                                 <option value="l">liter</option>
+                                <option value="nos">Nos</option>
                             </Field>
                             <ErrorMessage name="type" />
                         </div>
@@ -103,8 +109,8 @@ function ProductEntry({ reloadMethod, selectData, SelectData }) {
 
                     </div>
                     <div className="w3-container w3-center">
-                        <button type="reset" className="btn w3-deep-orange mr-3" onClick={() => SelectData(initialValues)}>Reset</button>
-                        <button type="submit" className="btn w3-deep-orange">Add</button>
+                        <button type="reset" className="btn w3-deep-orange mr-3" onClick={ResetData}>Reset</button>
+                        <button type="submit" className="btn w3-deep-orange" >Add</button>
                     </div>
                 </Form>
             </Formik>            

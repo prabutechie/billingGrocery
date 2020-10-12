@@ -26,6 +26,11 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
             })   
         SelectData(initialValues) 
     }  
+
+    const ResetData =()=>{
+        SelectData(initialValues)
+        reloadMethod(initialValues)
+    }
     
     
 
@@ -74,6 +79,7 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
                                 <option value="kg">Kilo grams</option>
                                 <option value="ml">milli liter</option>
                                 <option value="l">liter</option>
+                                <option value="nos">Nos</option>
                             </Field>
                             <ErrorMessage name="qt" />
                         </div>
@@ -84,7 +90,7 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
                         
                     </div>
                     <div className="w3-container w3-center">
-                        <button type="reset" className="btn w3-deep-orange mr-3" onClick={()=>SelectData(initialValues)}>Reset</button>
+                        <button type="reset" className="btn w3-deep-orange mr-3" onClick={ResetData}>Reset</button>
                         <button type="submit" className="btn w3-deep-orange">Add</button>
                     </div>
                 </Form>

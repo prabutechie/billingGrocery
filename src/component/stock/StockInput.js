@@ -77,15 +77,10 @@ function StockInput({ Reload, insert, update, Update, formValues }) {
                                         <option value="pkt">pkt</option>
                                         <option value="kg">Kg</option>
                                         <option value="l">Litre</option>
-
+                                        <option value="nos">Nos</option>
                                     </Field>
                                     <ErrorMessage name="type" />
                                 </div>
-
-
-
-
-
 
                             </div>
 
