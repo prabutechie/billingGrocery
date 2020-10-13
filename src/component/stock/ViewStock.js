@@ -129,6 +129,8 @@ function ViewStock({ reload, Reload, Update }) {
                                 )
                             }
 
+                            return(null)
+
                         })
                     }
                 </tbody>

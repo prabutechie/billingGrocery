@@ -1,0 +1,25 @@
+.taddress{
+    text-align:center;
+    font-size: 80px;
+}
+.taddress > b{
+    text-align:center;
+    font-size: 80px;
+}
+.tinvoice{    
+    text-align:center;
+    font-size:60px
+}
+.tproducts{
+    font-size:70px
+}
+.invoiceData  {
+    font-size :65px;
+}
+.itemTable {    
+    font-size : 70px
+}
+
+.ptable {    
+    font-size : 70px
+}

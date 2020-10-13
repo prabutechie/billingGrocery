@@ -8,6 +8,7 @@ function PrintButton({address,payment,componentRef,invoiceNo,invoiceDate,Reload,
         content: ()=>componentRef.current
     })
     const PrintBill = ()=>{
+       
         const values = {
             address:address,
             payment:payment,
