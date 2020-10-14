@@ -1,13 +1,13 @@
 import React from 'react';
 import {Provider} from "react-redux"
 import store from './redux/Store'
-import Index from './component'
+import Login from './login'
 
 function App() {
   return (
     <div>
       <Provider store={store} >
-        <Index />
+        <Login />
       </Provider>
     </div>
   );

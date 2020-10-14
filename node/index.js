@@ -8,6 +8,8 @@ app.use(cors());
 app.use(morgan("dev")); 
 app.use(express.json())
 
+const Port = process.env.PORT || 2000
+
 const product = require('./router/Product')
 const purches = require('./router/Purches')
 const sales = require('./router/Sales')
@@ -22,10 +24,13 @@ app.use("/address",address)
 
 
 app.get("/",(req,res)=>{
-    res.json("Root")
+    res.send("Root")
 })
 
-mongoose.connect("mongodb://localhost:27017/billgrocery",{ useNewUrlParser: true, useUnifiedTopology: true  },(err)=>{
+// const url ="mongodb+srv://root:dineshmjs@cluster0-y8uer.gcp.mongodb.net/grocery"
+const url = "mongodb://localhost:27017/billgrocery" 
+
+mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify : false },(err)=>{
     if(!err){
         console.log("Mongodb Connectced")
     }
@@ -34,7 +39,7 @@ mongoose.connect("mongodb://localhost:27017/billgrocery",{ useNewUrlParser: true
     }
 })
 
-app.listen(2000,()=>{
+app.listen(Port,()=>{
     console.log("Server run port 2000")
 })
 
