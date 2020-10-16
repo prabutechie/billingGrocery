@@ -8,7 +8,9 @@
     flex:1;    
     align-items: center;
     justify-content: center;
-    height: 90px;
+    height: 90px;   
+    width: 100%;
+    position: sticky;
 }
 
 .softwarename{    
@@ -23,9 +25,17 @@
 
 .body{
     display: flex;
+    background-image: url('../images/shop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;        
+}
+.body-container{
+   
 }
 .sidemenu{    
-    flex:0.2;
+    flex:0.2;    
 }
 .mainbody{    
     flex: 0.8;

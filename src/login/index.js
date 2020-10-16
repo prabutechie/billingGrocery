@@ -6,7 +6,7 @@ import './index.css'
 
 function Login() {
 
-    const [login, setLogin] = useState(false)
+    const [login, setLogin] = useState(true)
 
     const checkLogin = ({ username, password }) => {
         if (username === "dinesh" && password === "123") {

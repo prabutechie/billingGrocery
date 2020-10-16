@@ -9,9 +9,11 @@ import Address from './address'
 
 function Body() {
   const sidemenu = useSelector(state => state.sideMenu)
+
+  
   
   return (
-    <div>
+    <div className="body-container">
      {
        sidemenu === "sales" && <Sales />
      }
