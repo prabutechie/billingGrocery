@@ -45,6 +45,10 @@
     flex-direction: column;
     padding: 20px;
 }
+
+.sidemenu_container > div{
+    background-color: whitesmoke;
+}
 .card_padding{   
     align-items: center;
     width:90%;
@@ -54,13 +58,16 @@
     justify-content: center;
 }
 .card_padding:nth-child(odd):hover{
-    background-color: indigo;
+    background-color: indigo;    
 }
+
+
 .card_padding:nth-child(even):hover{
     background-color: purple;
 }
 .card_padding:hover > h5{
     color: white;
+    font-size: 25px;    
 }
 
 .filterform{

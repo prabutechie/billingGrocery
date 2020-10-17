@@ -56,7 +56,7 @@ function ViewSales({ reload, Invoice, Reload }) {
                             {
                                 filterData.map((data, index) => {
                                     return (
-                                        <div key={index} className="w3-card mt-3 " >
+                                        <div key={index} className="w3-card mt-3 w3-white" >
                                             <p className="w3-center w3-purple  pt-3 ">{data.address.name}</p>
                                             <div className="iv">
                                                 <p className="ml-3">Invoice No : <b>{data.invoiceno}</b></p>
@@ -92,9 +92,9 @@ function ViewSales({ reload, Invoice, Reload }) {
                             {
                                 sales.map((data, index) => {
                                     return (
-                                        <div key={index} className="w3-card mt-3 " >
+                                        <div key={index} className="w3-card mt-3 w3-white " >
                                             <p className="w3-center w3-purple  pt-3 ">{data.address.name}</p>
-                                            <div className="iv">
+                                            <div className="iv ">
                                                 <p className="ml-3">Invoice No : <b>{data.invoiceno}</b></p>
                                                 <p>Invoice Date : <b>{MyDate(data.invoicedate)}</b></p>
                                                 <p>Total: <b>{data.total}</b></p>

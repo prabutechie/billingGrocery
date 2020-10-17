@@ -56,7 +56,7 @@ export class ViewPrint extends Component {
             <div className="mt-2">
                 <p className="w3-center mt-3">TAX INVOICE</p>
 
-                <div className="viewprint">
+                <div className="viewprint w3-blue">
                     <div className="top">
                         <div className="address">
                             <Address address={this.props.fromaddress} />                            

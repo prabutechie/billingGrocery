@@ -9,7 +9,7 @@
 }
 
 .viewprint{    
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 .top{
@@ -21,13 +21,13 @@
     display: flex;
     flex:0.6;
     flex-direction: column;
-    border-right:1px solid black;
-    border-bottom:1px solid black;
+    border-right:1px solid white;
+    border-bottom:1px solid white;
 
 }
 
 .fromaddress{
-    border-bottom:1px solid black;
+    border-bottom:1px solid white;
     
 }
 .fromaddress > p {
@@ -46,9 +46,13 @@
     display: flex;
     flex:0.4;
     flex-direction: column;
-    border-bottom:1px solid black;
+    border-bottom:1px solid white;
 }
 
 .hr{
-    border:1px solid black;
+    border:1px solid white;
+}
+
+.table {
+    color: white;
 }
