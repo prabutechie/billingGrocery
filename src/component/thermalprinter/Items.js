@@ -4,10 +4,12 @@ import './index.css'
 
 function Products({ items }) {    
 
+    console.log("items",items)
+
     var total = 0;
 
     return (
-        <div>
+        <div>            
             <table className="w3-table itemTable" style={{color:"red",fontSize : "50px"}}>
                 <thead>
                     <tr>

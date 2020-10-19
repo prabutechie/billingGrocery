@@ -9,7 +9,7 @@ function Products({ reload }) {
     useEffect(() => {
         http.get("purches/tempItems")
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setData(res.data)
             })
             .catch(err => {
@@ -18,6 +18,8 @@ function Products({ reload }) {
     }, [reload])
 
     var grandTotal = 0;
+
+    console.log("product",data)
 
     return (
         <div style={{marginTop:"100px"}}>

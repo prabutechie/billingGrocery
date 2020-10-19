@@ -7,7 +7,7 @@ function Products({ items }) {
 
     return (
         <div>
-            <table className="table">
+            <table className="table printbill-items-table">
                 <thead>
                     <tr>
                         <td>S.No</td>

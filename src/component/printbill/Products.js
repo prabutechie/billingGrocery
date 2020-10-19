@@ -21,7 +21,7 @@ function Products({ reload }) {
 
     return (
         <div>
-            <table className="table">
+            <table className="printbill-product-table table">
                 <thead>
                     <tr>
                         <td>S.No</td>

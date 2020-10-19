@@ -10,6 +10,7 @@ import Items from './Items'
 import React, { Component } from 'react'
 
 
+
 export class ViewPrint extends Component {
     render() {
         return (
