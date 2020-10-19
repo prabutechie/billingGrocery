@@ -51,20 +51,20 @@ address.delete("/", async (req, res) => {
     res.status(200).send(deleteItem)
 })
 
-address.post("/tempaddress",async(req,res)=>{
+// address.post("/tempaddress",async(req,res)=>{
    
-})
+// })
 
-address.get("/tempaddress",async(req,res)=>{
+// address.get("/tempaddress",async(req,res)=>{
 
-})
+// })
 
-address.put("/tempaddress",async(req,res)=>{
+// address.put("/tempaddress",async(req,res)=>{
 
-})
+// })
 
-address.delete("/tempaddress",async(req,res)=>{
+// address.delete("/tempaddress",async(req,res)=>{
 
-})
+// })
 
 module.exports = address

@@ -11,8 +11,20 @@ function Address() {
         setReload(id)
     }
 
+    const initialValues = {
+        name: "",
+        gstin: "",
+        contact: "",
+        email: "",
+        address: "",
+        city: "",
+        state: "",
+        country: "",
+        pincode: ""
+    }
+
     const [update, setUpdate] = useState(false)
-    const [updateValues, setupdateValues] = useState({})
+    const [updateValues, setupdateValues] = useState(initialValues)
     const [insert, setInsert] = useState(true)
 
     const Update = (data, status, values) => {
@@ -57,6 +69,7 @@ function Address() {
                 Update={Update}
                 insert={insert}
                 update={update}
+                initialValues={initialValues}
             />
             <ViewAddress reload={reload} Update={Update} />
         </div>

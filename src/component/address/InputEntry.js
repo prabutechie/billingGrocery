@@ -4,21 +4,9 @@ import * as yup from 'yup'
 import './index.css'
 import { http } from '../../axios'
 
-function InputEntry({ Reload, updateValues, Update, update, insert }) {
+function InputEntry({ Reload, updateValues, Update, update, insert, initialValues }) {
 
-    const initialValues = {
-        name: "",
-        gstin: "",
-        contact: "",
-        email: "",
-        address: "",
-        city: "",
-        state: "",
-        country: "",
-        pincode: ""
-    }
-
-    
+    console.log("updateValues",updateValues)   
 
 
 
@@ -55,7 +43,7 @@ function InputEntry({ Reload, updateValues, Update, update, insert }) {
     return (
         <div className="container mt-3">
             <Formik
-                initialValues={updateValues || initialValues}
+                initialValues={updateValues}
                 onSubmit={submit}
                 validationSchema={validationSchema}
                 enableReinitialize
