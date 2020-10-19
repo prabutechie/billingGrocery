@@ -13,13 +13,13 @@ function Products({ reload }) {
                 setData(res.data)
             })
             .catch(err => {
-                // console.log(err)
+                console.log(err)
             })
     }, [reload])
 
     var grandTotal = 0;
 
-    console.log("product",data)
+    // console.log("product",data)
 
     return (
         <div style={{marginTop:"100px"}}>

@@ -24,7 +24,7 @@ function ViewAddress({ reload,Update }) {
     const deleteItem=(id)=>{
         http.delete("address",{params:{id:id}})
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             setreRender(res.data)
             if(res.data.ok === 1){
                 alert("Address Deleted SucccessFully")

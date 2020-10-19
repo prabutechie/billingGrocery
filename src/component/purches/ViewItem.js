@@ -16,7 +16,7 @@ function ViewItem({ reload,Reload }) {
                 setviewData(res.data)
             })
             .catch(err => {
-                // console.log(err)
+                console.log(err)
             })
     }, [reload])
 

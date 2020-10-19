@@ -9,10 +9,10 @@ function StockInput({ Reload, insert, update, Update, formValues, initialValues 
 
     const submit = async (values, submitProps) => {
 
-        console.log("values", values)
+        // console.log("values", values)
         http.post("product", values)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 Reload(res.data)
                 Update(initialValues, false)
             })

@@ -31,8 +31,8 @@ function Sales() {
 
     const [newSales, setnewSales] = useState(false)
 
-    console.log("payment", payment)
-    console.log("address", address)
+    // console.log("payment", payment)
+    // console.log("address", address)
 
     const Reload = (id) => {
         // console.log(id)

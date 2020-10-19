@@ -7,7 +7,7 @@ function Address() {
     const [reload, setReload] = useState(1)
 
     const Reload = (id) => {
-        console.log(id)
+        // console.log(id)
         setReload(id)
     }
 
@@ -28,7 +28,7 @@ function Address() {
     const [insert, setInsert] = useState(true)
 
     const Update = (data, status, values) => {
-        console.log(data, status)
+        // console.log(data, status)
         if (status) {
             setUpdate(status)
             setupdateValues(data)
@@ -49,7 +49,7 @@ function Address() {
     const editItem = (data, status, values) => {
         http.put("address", values)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setReload(res.data)
                 setUpdate(status)
                 setupdateValues(data)

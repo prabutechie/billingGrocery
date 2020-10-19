@@ -8,7 +8,7 @@ function Filter({ FilterData, data }) {
     const [selectYear,setselectYear] = useState("")
     const [selectMonth,setselectMonth] = useState("") 
 
-    console.log(selectYear,selectMonth)
+    // console.log(selectYear,selectMonth)
      
     const filter = (e) => { 
         e.preventDefault()     
@@ -34,7 +34,7 @@ function Filter({ FilterData, data }) {
 
         
         if(month === month2 && year === year2){
-            console.log(data)
+            // console.log(data)
             return data
         }
     }

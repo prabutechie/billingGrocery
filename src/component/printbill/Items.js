@@ -20,7 +20,7 @@ function Products({ items }) {
                 <tbody>
                     {
                         items.map((data, index) => {
-                            console.log("data", data)
+                            // console.log("data", data)
                             total += data.rate  
 
                             return (

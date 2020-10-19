@@ -4,7 +4,7 @@ import { http } from '../../axios'
 import * as yup from 'yup'
 
 function ProductEntry({ reloadMethod, selectData, SelectData }) {
-    console.log("selectData", selectData)
+    // console.log("selectData", selectData)
 
     // const [rates,setRates] = useState(0)
     // const [qt,setQt] = useState(0)

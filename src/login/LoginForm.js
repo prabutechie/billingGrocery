@@ -11,7 +11,7 @@ function LoginForm({checkLogin}) {
     }
 
     const submit = (values)=>{
-        console.log(values)
+        // console.log(values)
         checkLogin(values)
     }
 

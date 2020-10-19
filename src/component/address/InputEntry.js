@@ -6,15 +6,15 @@ import { http } from '../../axios'
 
 function InputEntry({ Reload, updateValues, Update, update, insert, initialValues }) {
 
-    console.log("updateValues",updateValues)   
+    // console.log("updateValues",updateValues)   
 
 
 
     const submit = (values, submitProps) => {
-        console.log("form values", values)
+        // console.log("form values", values)
         http.post("address", values)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 Reload(res.data._id)
 
             })
@@ -50,7 +50,7 @@ function InputEntry({ Reload, updateValues, Update, update, insert, initialValue
             >
                 {
                     (formikProps) =>{
-                        console.log("formikProps",formikProps)
+                        // console.log("formikProps",formikProps)
                     
                     
                     return (

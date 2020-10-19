@@ -5,10 +5,6 @@ import EditIcon from '@material-ui/icons/Edit'
 
 function ViewStock({ reload, Reload, Update }) {
 
-    
-
-
-
     const [stock, setStock] = useState([])
 
     useEffect(() => {

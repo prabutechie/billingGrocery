@@ -19,7 +19,7 @@ function Stock() {
     const [formValues, setformValues] = useState(initialValues)
 
     const Reload = (id) => {
-        console.log(id)
+        // console.log(id)
         setReload(id)
     }
 
@@ -44,10 +44,10 @@ function Stock() {
     }
 
     const editProduct = (data, status, values) => {
-        console.log(values)       
+        // console.log(values)       
 
 
-        console.log(values)
+        // console.log(values)
         http.put("product", values)
             .then(res => {
                 // console.log(res.data)

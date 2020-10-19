@@ -30,8 +30,8 @@ function Purcches() {
     
 
 
-    console.log("payment", payment)
-    console.log("address", address)
+    // console.log("payment", payment)
+    // console.log("address", address)
 
 
 

@@ -4,7 +4,7 @@ import './index.css'
 
 function Products({ items }) {    
 
-    console.log("items",items)
+    // console.log("items",items)
 
     var total = 0;
 
@@ -22,7 +22,7 @@ function Products({ items }) {
                 <tbody>
                     {
                         items.map((data, index) => {
-                            console.log("data", data)
+                            // console.log("data", data)
                             total += data.rate  
 
                             return (

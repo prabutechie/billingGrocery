@@ -16,7 +16,7 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
     }      
     
     const submit = (values, props) => {       
-        console.log(values)
+        // console.log(values)
         http.post("purches/tempItems", values)
             .then(res => {                           
                 reloadMethod(res.data._id)            

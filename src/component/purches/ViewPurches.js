@@ -53,7 +53,7 @@ function ViewPurches({ reload, Reload }) {
                         <div>
                             {
                                 filterData.map((data, index) => {
-                                    console.log("viewpurches",data)
+                                    // console.log("viewpurches",data)
                                     return (
                                         <div key={index} className="w3-card mt-3 w3-white" >
                                             <p className="w3-center w3-indigo pt-3 ">{data.address.name}</p>
