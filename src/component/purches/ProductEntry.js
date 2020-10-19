@@ -72,7 +72,7 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
                             <ErrorMessage name="qt" />
                         </div>                        
                         <div className="form-group col-4">
-                            <Field as="select" name="type" className="form-control">
+                            <Field disabled as="select" name="type" className="form-control">
                                 <option value="">Select Type</option>
                                 <option value="pkt">pkt</option>
                                 <option value="g">grams</option>

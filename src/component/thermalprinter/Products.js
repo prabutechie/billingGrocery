@@ -9,7 +9,7 @@ function Products({ reload }) {
     useEffect(() => {
         http.get("purches/tempItems")
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 setData(res.data)
             })
             .catch(err => {
