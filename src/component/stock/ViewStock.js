@@ -48,6 +48,7 @@ function ViewStock({ reload, Reload, Update }) {
                         <td>Product</td>
                         <td>HSNNO</td>
                         <td>Rate</td>
+                        <td>GST</td>
                         <td>Type</td>
                         <td>AVAILABLE</td>
                         <td>Edit</td>
@@ -62,7 +63,8 @@ function ViewStock({ reload, Reload, Update }) {
                                     <tr key={data._id}>
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>
-                                        <td>{data.rate}</td> 
+                                        <td>{data.rate}</td>
+                                        <td>{data.gst}%</td>  
                                         <td>{data.type}</td>
                                         <td>{data.qt} Kg</td>
                                         <td className="w3-text-green" onClick={() => Update(data, true)} >
@@ -80,6 +82,7 @@ function ViewStock({ reload, Reload, Update }) {
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>
                                         <td>{data.rate}</td>
+                                        <td>{data.gst}%</td>
                                         <td>{data.type}</td>
                                         <td>{data.qt} L</td>
                                         <td className="w3-text-green" onClick={() => Update(data, true)} >
@@ -97,6 +100,7 @@ function ViewStock({ reload, Reload, Update }) {
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>
                                         <td>{data.rate}</td>
+                                        <td>{data.gst}%</td>
                                         <td>{data.type}</td>
                                         <td>{data.qt} pkt</td>
                                         <td className="w3-text-green" onClick={() => Update(data, true)} >
@@ -115,6 +119,7 @@ function ViewStock({ reload, Reload, Update }) {
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>
                                         <td>{data.rate}</td>
+                                        <td>{data.gst}%</td>
                                         <td>{data.type}</td>
                                         <td>{data.qt} Nos</td>
                                         <td className="w3-text-green" onClick={() => Update(data, true)} >

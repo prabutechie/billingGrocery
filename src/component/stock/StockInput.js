@@ -5,11 +5,11 @@ import './index.css'
 import { http } from '../../axios'
 
 function StockInput({ Reload, insert, update, Update, formValues, initialValues }) {
-   
+
 
     const submit = async (values, submitProps) => {
 
-        // console.log("values", values)
+        console.log("values", values)
         http.post("product", values)
             .then(res => {
                 // console.log(res.data)
@@ -19,14 +19,15 @@ function StockInput({ Reload, insert, update, Update, formValues, initialValues 
             .catch(err => {
                 console.log(err)
             })
-        submitProps.resetForm()    
+        submitProps.resetForm()
 
     }
 
     const validationSchema = yup.object({
         product: yup.string().required("Enter Product Name"),
         hsnno: yup.number().required("Enter HSNNO"),
-        type: yup.string().required("Enter Type")
+        type: yup.string().required("Enter Type"),
+        gst: yup.number().required("Enter Product GST")
     })
 
     return (
@@ -54,6 +55,19 @@ function StockInput({ Reload, insert, update, Update, formValues, initialValues 
                                 <div className="form-group">
                                     <Field name="rate" type="number" className="form-control" placeholder="Enter Rate" />
                                     <ErrorMessage name="rate" />
+                                </div>
+
+                                <div className="form-group">                                    
+                                    <Field as="select" name="gst" type="number" className="form-control">
+                                        <option value="">Select Gst</option>
+                                        <option value="0">0%</option>
+                                        <option value="5">5%</option>
+                                        <option value="12">12%</option>
+                                        <option value="18">18%</option>
+                                        <option value="28">28%</option>
+                                    </Field>
+
+                                    <ErrorMessage name="gst" />
                                 </div>
 
 

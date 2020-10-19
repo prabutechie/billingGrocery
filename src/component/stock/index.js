@@ -10,7 +10,8 @@ function Stock() {
         hsnno: "",
         qt: 0,
         rate: 0,
-        type: ""
+        type: "",
+        gst:""
     }
 
     const [reload, setReload] = useState(1)

@@ -26,10 +26,10 @@ function SideMenu() {
          <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("address"))} >
             <h5 className="" >Address</h5>
          </div>
-         {/* <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("gst"))} >
+         <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("gst"))} >
             <h5 className="" >GST</h5>
          </div>
-         <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("profit"))} >
+         {/* <div  className="w3-card card_padding" onClick={()=>dispatch(sideMenu("profit"))} >
             <h5 className="" >Profit</h5>
          </div> */}
          

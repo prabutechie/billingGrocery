@@ -5,7 +5,7 @@ import Purches from './purches'
 import Stock from './stock'
 // import Profit from './profit'
 import Address from './address'
-// import Gst from './gst'
+import Gst from './gst'
 
 function Body() {
   const sidemenu = useSelector(state => state.sideMenu)
@@ -26,10 +26,10 @@ function Body() {
      {
        sidemenu === "address" && <Address />
      }  
-     {/* {
+     {
        sidemenu === "gst" && <Gst />
      }  
-     {
+     {/* {
        sidemenu === "profit" && <Profit />
      }   */}
         

@@ -5,8 +5,14 @@
 /.pnp
 .pnp.js
 
+#firebasee
+.firebase/
+.firebaserc
+
 # testing
 /coverage
+
+
 
 # production
 /build

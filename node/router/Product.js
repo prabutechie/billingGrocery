@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 const product = require('express').Router()
 const productSchema = require('../schema/Product')
 
-product.post("/", async (req, res) => {
-    console.log(req.body)
+product.post("/", async (req, res) => {  
+    console.log(req.body)    
     const insert = await new productSchema(req.body)
     await insert.save((err, doc) => {
         if (err) {
@@ -33,7 +33,7 @@ product.get("/", async (req, res) => {
 // })
 
 product.put("/",async(req,res)=>{
-    const {_id,qt,__v,...data} = req.body
+    const {_id,qt,gst__v,...data} = req.body
 
     const find = {
         _id:_id

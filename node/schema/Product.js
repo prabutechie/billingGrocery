@@ -13,6 +13,10 @@ const product = mongoose.Schema({
         type:Number,
         required:true
     },
+    gst:{
+        type:Number,
+        required:true
+    },
     qt:{
         type:Number,
         required:true
