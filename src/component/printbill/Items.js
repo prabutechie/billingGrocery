@@ -10,18 +10,21 @@ function Products({ items }) {
             <table className="table printbill-items-table">
                 <thead>
                     <tr>
-                        <td>S.No</td>
+                        <th>S.No</th>
                         <th>Product</th>
                         <th>HSNNO</th>                        
                         <th>Quantity</th>
-                        <th>Rate</th>                        
+                        <th>Rate</th>
+                        <th>Taxable Amount</th>
+                        <th>Gst</th>
+                        <th>Total</th>                        
                     </tr>
                 </thead>
                 <tbody>
                     {
                         items.map((data, index) => {
                             // console.log("data", data)
-                            total += data.rate  
+                            total += data.total  
 
                             return (
                                 <tr key={data._id}>
@@ -29,13 +32,19 @@ function Products({ items }) {
                                     <td>{data.product}</td>
                                     <td>{data.hsnno}</td>                                    
                                     <td>{data.qt} {data.type}</td>
-                                    <td>{data.rate}</td>                                                                     
+                                    <td>{data.rate}</td>
+                                    <td>{data.taxableamount}</td>
+                                    <td>{data.gst}%</td>
+                                    <td>{data.total}</td>                                                                     
                                 </tr>
                             )
                         })
                     }
 
                     <tr>                       
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

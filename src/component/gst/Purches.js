@@ -50,6 +50,7 @@ function Purches() {
                                     filterData.map(data => {
                                         return data.items.map((items) => {
                                             x += 1
+                                           
                                             return (
                                                 <tr key={x}>
                                                     <td>{x}</td>
@@ -57,10 +58,10 @@ function Purches() {
                                                     <td>{data.address.gstin}</td>
                                                     <td>{data.invoicedate}</td>
                                                     <td>{data.invoiceno}</td>
-                                                    <td>{items.total}</td>
+                                                    <td>{items.taxableamount}</td>
                                                     <td>{items.gst}%</td>
-                                                    <td>{items.gstTotal}</td>
-                                                    <td>{items.grandTotal}</td>
+                                                    <td>{items.gstamount}</td>
+                                                    <td>{items.total}</td>
                                                 </tr>
                                             )
 
@@ -83,10 +84,10 @@ function Purches() {
                                                     <td>{data.address.gstin}</td>
                                                     <td>{data.invoicedate}</td>
                                                     <td>{data.invoiceno}</td>
-                                                    <td>{items.total}</td>
+                                                    <td>{items.taxableamount}</td>
                                                     <td>{items.gst}%</td>
-                                                    <td>{items.gstTotal}</td>
-                                                    <td>{items.grandTotal}</td>
+                                                    <td>{items.gstamount}</td>
+                                                    <td>{items.total}</td>
                                                 </tr>
                                             )
 

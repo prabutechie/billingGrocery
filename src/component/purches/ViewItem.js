@@ -47,6 +47,9 @@ function ViewItem({ reload,Reload }) {
                             <th>HSNNO</th>                            
                             <th>Quantity</th>
                             <th>Rate</th>  
+                            <th>Taxable Amount</th>
+                            <th>GST</th>
+                            <th>Total</th>
                             <th>Action</th>                          
                         </tr>
                     </thead>
@@ -59,7 +62,10 @@ function ViewItem({ reload,Reload }) {
                                         <td>{data.product}</td>
                                         <td>{data.hsnno}</td>                                        
                                         <td>{data.qt} {data.type}</td>
-                                        <td>{data.rate}</td>                                        
+                                        <td>{data.rate}</td>
+                                        <td>{data.taxableamount}</td>
+                                        <td>{data.gst}</td>
+                                        <td>{data.total}</td>                                        
                                         <td>
                                             <DeleteIcon
                                                 className="w3-text-red"

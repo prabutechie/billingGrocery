@@ -20,6 +20,22 @@ const tempitems = mongoose.Schema({
     type:{
         type:String,
         required:true
+    },
+    gst:{
+        type:Number,
+        required:true
+    },
+    gstamount:{
+        type:Number,
+        required:true
+    },
+    taxableamount:{
+        type:Number,
+        required:true
+    },
+    total:{
+        type:Number,
+        required:true
     }
 
 })

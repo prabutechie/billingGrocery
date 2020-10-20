@@ -21,7 +21,7 @@ const purches = mongoose.Schema({
     items:{
         type:Array,
         required:true
-    },
+    },    
     total:{
         type:Number,
         required:true

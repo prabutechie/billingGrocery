@@ -23,14 +23,14 @@ function Products({ items }) {
                     {
                         items.map((data, index) => {
                             // console.log("data", data)
-                            total += data.rate  
+                            total += data.total  
 
                             return (
                                 <tr key={data._id}>
                                     <td>{index + 1}</td>
                                     <td>{data.product}</td>                                                                   
                                     <td>{data.qt} {data.type}</td>
-                                    <td>{data.rate}</td>                                                                     
+                                    <td>{data.total}</td>                                                                     
                                 </tr>
                             )
                         })

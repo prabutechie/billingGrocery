@@ -42,7 +42,7 @@ purches.post("/", async (req, res) => {
         var find = { product: x.product }
         const updateProduct = await productSchema.updateOne(find, update)
         
-        total += x.rate
+        total += x.total        
 
         loopcount += 1
 
@@ -51,6 +51,7 @@ purches.post("/", async (req, res) => {
     // console.log(loopcount, count)
 
 
+    
     if (count > 0) {
         if (loopcount === count) {
             const insert = {
@@ -196,9 +197,37 @@ purches.post("/tempItems", async (req, res) => {
     //Insert tempItem Collection
 
    
-    
+    const {gst, rate, type, qt, ...restBody} = req.body
 
-    const insert = await new tempItem(req.body)
+    var taxableamount
+
+    if(type === "g" || type === "ml" ){
+        taxableamount = rate * (qt/1000) 
+    }
+            
+    if(type === "pkt" || type === "kg" || type === "l" || type==="nos"){
+        taxableamount = rate * qt
+    }
+    
+    // const taxableamount = rate 
+    const numGst = Number(gst)
+    const gstamount = taxableamount * (numGst/100)
+    const total = taxableamount + gstamount
+
+    const insertValues = {
+        gst:numGst,
+        rate:rate,
+        taxableamount:taxableamount,
+        type:type,
+        qt:qt,
+        gstamount : gstamount,
+        total:total,
+        ...restBody
+    }
+
+    console.log(insertValues)
+
+    const insert = await new tempItem(insertValues)
     // console.log(insert)
 
     await insert.save((err, doc) => {

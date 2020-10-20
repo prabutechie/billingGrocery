@@ -40,7 +40,7 @@ sales.post("/", async (req, res) => {
         var find = { product: x.product }
         const updateProduct = await productSchema.updateOne(find, update)
 
-        total += x.rate
+        total += x.total
 
 
         loopcount += 1
@@ -133,29 +133,40 @@ sales.delete("/", async (req, res) => {
 })
 
 sales.post("/tempItems", async (req, res) => {
-    console.log(req.body)
-    const { qt, rate, type,...others } = req.body    
-    var insertValues,newRate;
 
-    if (type === "ml" || type === "g") {        
-        newRate = ( qt/1000 ) * rate
-        insertValues = {
-            rate:newRate,
-            type:type,
-            qt:qt,
-            ...others
+    const {gst, rate, type, qt, ...restBody} = req.body
+
+    var taxableamount;
+
+    if(type === "g" || type === "ml" ){ 
+        taxableamount = ( qt/1000 ) * rate   
+    }
             
-        }
+    if(type === "pkt" || type === "kg" || type === "l" || type==="nos"){   
+        taxableamount = rate * qt  
     }
-    if (type === "pkt" || type === "kg" || type === "l" || type === "nos") {
-        newRate = qt * rate
-        insertValues = {
-            rate:newRate,
-            type:type,
-            qt:qt,
-            ...others
-        }
+    
+    // const taxableamount = rate 
+    const numGst = Number(gst)
+    const gstamount = taxableamount * (numGst/100)
+    const total = taxableamount + gstamount
+
+    const insertValues = {
+        gst:numGst,
+        rate:rate,
+        taxableamount:taxableamount,
+        type:type,
+        qt:qt,
+        gstamount : gstamount,
+        total:total,
+        ...restBody
     }
+
+    console.log(req.body)
+      
+    
+
+    
 
     console.log(insertValues)
 

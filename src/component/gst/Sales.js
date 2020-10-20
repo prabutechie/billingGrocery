@@ -54,10 +54,10 @@ function Sales() {
                                                     <td>{data.address.gstin}</td>
                                                     <td>{data.invoicedate}</td>
                                                     <td>{data.invoiceno}</td>
-                                                    <td>{items.total}</td>
+                                                    <td>{items.taxableamount}</td>
                                                     <td>{items.gst}%</td>
-                                                    <td>{items.gstTotal}</td>
-                                                    <td>{items.grandTotal}</td>
+                                                    <td>{items.gstamount}</td>
+                                                    <td>{items.total}</td>
                                                 </tr>
                                             )
 
@@ -80,10 +80,10 @@ function Sales() {
                                                     <td>{data.address.gstin}</td>
                                                     <td>{data.invoicedate}</td>
                                                     <td>{data.invoiceno}</td>
-                                                    <td>{items.total}</td>
+                                                    <td>{items.taxableamount}</td>
                                                     <td>{items.gst}%</td>
-                                                    <td>{items.gstTotal}</td>
-                                                    <td>{items.grandTotal}</td>
+                                                    <td>{items.gstamount}</td>
+                                                    <td>{items.total}</td>
                                                 </tr>
                                             )
 

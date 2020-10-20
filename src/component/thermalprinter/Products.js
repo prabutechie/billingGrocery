@@ -35,7 +35,7 @@ function Products({ reload }) {
                 <tbody>
                     {
                         data.map((data, index) => {
-                            grandTotal += data.rate
+                            grandTotal += data.total
 
 
 
@@ -44,7 +44,7 @@ function Products({ reload }) {
                                     <td>{index + 1}</td>                                    
                                     <td>{data.product}</td>
                                     <td>{data.qt}{data.type}</td>
-                                    <td>{data.rate}</td>
+                                    <td>{data.total}</td>
                                 </tr>
                             )
                         })

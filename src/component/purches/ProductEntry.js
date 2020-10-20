@@ -11,7 +11,8 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
         hsnno: "",
         rate: "",
         qt: "",
-        type: ""        
+        type: "",
+        gst:""        
        
     }      
     
@@ -67,11 +68,11 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
                     </div> */}
                     <div className="row">
                         
-                        <div className=" col-4 form-group">                            
+                        <div className=" col-3 form-group">                            
                             <Field name="qt" type="number" className="form-control" placeholder="Quantity" />
                             <ErrorMessage name="qt" />
                         </div>                        
-                        <div className="form-group col-4">
+                        <div className="form-group col-3">
                             <Field disabled as="select" name="type" className="form-control">
                                 <option value="">Select Type</option>
                                 <option value="pkt">pkt</option>
@@ -83,9 +84,13 @@ function ProductEntry({reloadMethod, selectData, SelectData}) {
                             </Field>
                             <ErrorMessage name="qt" />
                         </div>
-                        <div className=" col-4 form-group">
+                        <div className=" col-3 form-group">
                             <Field name="rate" type="number" className="form-control" placeholder="Amount" />
                             <ErrorMessage name="rate" />
+                        </div>
+                        <div className=" col-3 form-group">
+                            <Field disabled name="gst" type="number" className="form-control" placeholder="Gst" />
+                            <ErrorMessage name="gst" />
                         </div>
                         
                     </div>
