@@ -15,20 +15,22 @@ const purches = require('./router/Purches')
 const sales = require('./router/Sales')
 const profit = require('./router/Profit')
 const address = require('./router/Address')
+const scan = require('./router/Scan')
 
 app.use("/product",product)
 app.use("/purches",purches)
 app.use("/sales",sales)
 app.use("/profit",profit)
 app.use("/address",address)
+app.use("/scan",scan)
 
 
 app.get("/",(req,res)=>{
     res.send("Root")
 })
 
-// const url ="mongodb+srv://root:dineshmjs@cluster0-y8uer.gcp.mongodb.net/grocery"
-const url = "mongodb://localhost:27017/billgrocery" 
+const url ="mongodb+srv://root:dineshmjs@cluster0-y8uer.gcp.mongodb.net/grocery"
+// const url = "mongodb://localhost:27017/billgrocery" 
 
 mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify : false },(err)=>{
     if(!err){
@@ -39,7 +41,7 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true, useFindA
     }
 })
 
-app.listen(Port,()=>{
+app.listen(Port,()=>{   
     console.log("Server run port 2000")
 })
 

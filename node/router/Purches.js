@@ -11,28 +11,28 @@ const productSchema = require('../schema/Product')
 purches.post("/", async (req, res) => {
 
     const items = await tempItem.find()
-    console.log("items",items)
+    console.log("items", items)
 
     const { address, payment, invoiceNo, invoiceDate } = req.body
 
-    var x,newAvailable,total = 0;
-   
+    var x, newAvailable, total = 0;
+
     const count = items.length
     var loopcount = 0
 
     for (x of items) {
         var available = await productSchema.findOne({ product: x.product })
 
-        console.log("AVAILABLE",available)
+        console.log("AVAILABLE", available)
 
-        if(x.type === "g" || x.type === "ml" ){
-            newAvailable = available.qt + x.qt / 1000  
+        if (x.type === "g" || x.type === "ml") {
+            newAvailable = available.qt + x.qt / 1000
         }
-                
-        if(x.type === "pkt" || x.type === "kg" || x.type === "l" || x.type==="nos"){
+
+        if (x.type === "pkt" || x.type === "kg" || x.type === "l" || x.type === "nos") {
             newAvailable = available.qt + x.qt
         }
-        
+
         var update = {
             $set: {
                 qt: newAvailable
@@ -41,8 +41,8 @@ purches.post("/", async (req, res) => {
         console.log(update)
         var find = { product: x.product }
         const updateProduct = await productSchema.updateOne(find, update)
-        
-        total += x.total        
+
+        total += x.total
 
         loopcount += 1
 
@@ -51,7 +51,7 @@ purches.post("/", async (req, res) => {
     // console.log(loopcount, count)
 
 
-    
+
     if (count > 0) {
         if (loopcount === count) {
             const insert = {
@@ -59,7 +59,7 @@ purches.post("/", async (req, res) => {
                 invoicedate: invoiceDate,
                 invoiceno: invoiceNo,
                 payment: payment,
-                items: items,                
+                items: items,
                 total: total
             }
 
@@ -108,11 +108,11 @@ purches.delete("/", async (req, res) => {
     for (x of items) {
         var available = await productSchema.findOne({ product: x.product })
 
-        if(x.type === "g" || x.type === "ml" ){
-            qt = x.qt / 1000  
+        if (x.type === "g" || x.type === "ml") {
+            qt = x.qt / 1000
         }
-                
-        if(x.type === "pkt" || x.type === "kg" || x.type === "l" || x.type==="nos"){
+
+        if (x.type === "pkt" || x.type === "kg" || x.type === "l" || x.type === "nos") {
             qt = x.qt
         }
 
@@ -128,7 +128,7 @@ purches.delete("/", async (req, res) => {
             // console.log(update)
             count += 1
         }
-        else{
+        else {
             res.status(200).send("Cont't delete - Reason : Available is Low")
             break
         }
@@ -157,71 +157,33 @@ purches.delete("/", async (req, res) => {
 
 purches.post("/tempItems", async (req, res) => {
     console.log(req.body)
-    // const { product, hsnno, qt, rate, type } = req.body
 
-    //update Product Collection
-    // const updateProducts = async() => {
-    // console.log("updateProducts")
-    //     findProduct = await productSchema.findOne({ product: product })
-    //     if (findProduct) {
-    //         //update Product Quantity
-    //         prevQt = findProduct.qt
-    //         newQt = prevQt + qt
 
-    //         const updateQt = await productSchema.updateOne({ product: product }, { $set: { qt: newQt } })
-    // console.log(updateQt)
-
-    //     }
-    //     if (!findProduct) {
-    //         // insert New Product
-    //         const insert = await new productSchema({
-    //             product:product,
-    //             hsnno:hsnno,
-    //             mrp:mrp,
-    //             qt:qt,
-    //             rate:rate,
-    //             gst:gst
-    //         })
-    //         await insert.save((err, doc) => {
-    //             if (err) {
-    // console.log("error", err)                   
-    //             }
-    //             if (doc) {
-    // console.log("doc", doc)                   
-
-    //             }
-    //         })
-    //     }
-    // }
-
-    //Insert tempItem Collection
-
-   
-    const {gst, rate, type, qt, ...restBody} = req.body
+    const { gst, rate, type, qt, ...restBody } = req.body
 
     var taxableamount
 
-    if(type === "g" || type === "ml" ){
-        taxableamount = rate * (qt/1000) 
+    if (type === "g" || type === "ml") {
+        taxableamount = rate * (qt / 1000)
     }
-            
-    if(type === "pkt" || type === "kg" || type === "l" || type==="nos"){
+
+    if (type === "pkt" || type === "kg" || type === "l" || type === "nos") {
         taxableamount = rate * qt
     }
-    
+
     // const taxableamount = rate 
     const numGst = Number(gst)
-    const gstamount = taxableamount * (numGst/100)
+    const gstamount = taxableamount * (numGst / 100)
     const total = taxableamount + gstamount
 
     const insertValues = {
-        gst:numGst,
-        rate:rate,
-        taxableamount:taxableamount,
-        type:type,
-        qt:qt,
-        gstamount : gstamount,
-        total:total,
+        gst: numGst,
+        rate: rate,
+        taxableamount: taxableamount,
+        type: type,
+        qt: qt,
+        gstamount: gstamount,
+        total: total,
         ...restBody
     }
 

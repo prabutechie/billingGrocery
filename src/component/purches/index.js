@@ -16,6 +16,8 @@ import { http } from '../../axios'
 import { NativeAddress } from '../../default/NativeAddress'
 import { MyDate } from '../../mycode/MyDate'
 
+import BarcodeReader from 'react-barcode-reader'
+
 function Purcches() {
     const [reloadView, setreloadView] = useState(1)
     const [selectData, setselectData] = useState()
@@ -54,6 +56,20 @@ function Purcches() {
             setselectData(resData)
         }
 
+    }
+
+    const ScanData =(data)=>{
+        console.log("scandata",data)
+        http.get("scan",{params:{code:data}})
+        .then(res=>{
+            const { _id, __v, ...resData } = res.data
+            resData.qt = ""
+            resData.rate = ""
+            setselectData(resData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
     const Address = (address) => {
@@ -121,6 +137,7 @@ function Purcches() {
                         </div>
                         <div className="w3-container mt-1">
                             <SelectProduct SelectData={SelectData} reload={reloadView} />
+                            <BarcodeReader onScan={ScanData} />
                             <ProductEntry reloadMethod={Reload} selectData={selectData} SelectData={SelectData} />
                             <ViewItem reload={reloadView} Reload={Reload} />
 

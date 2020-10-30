@@ -25,7 +25,7 @@ sales.post("/", async (req, res) => {
         if (type === "ml" || type === "g") {
             newAvailable = available.qt - (x.qt / 1000)
         }
-        if (type === "pkt" || type === "kg" || type === "l" || type==="nos") {
+        if (type === "pkt" || type === "kg" || type === "l" || type === "nos") {
             newAvailable = available.qt - x.qt
         }
 
@@ -134,80 +134,42 @@ sales.delete("/", async (req, res) => {
 
 sales.post("/tempItems", async (req, res) => {
 
-    const {gst, rate, type, qt, ...restBody} = req.body
+    const { gst, rate, type, qt, ...restBody } = req.body
 
     var taxableamount;
 
-    if(type === "g" || type === "ml" ){ 
-        taxableamount = ( qt/1000 ) * rate   
+    if (type === "g" || type === "ml") {
+        taxableamount = (qt / 1000) * rate
     }
-            
-    if(type === "pkt" || type === "kg" || type === "l" || type==="nos"){   
-        taxableamount = rate * qt  
+
+    if (type === "pkt" || type === "kg" || type === "l" || type === "nos") {
+        taxableamount = rate * qt
     }
-    
+
     // const taxableamount = rate 
     const numGst = Number(gst)
-    const gstamount = taxableamount * (numGst/100)
+    const gstamount = taxableamount * (numGst / 100)
     const total = taxableamount + gstamount
 
     const insertValues = {
-        gst:numGst,
-        rate:rate,
-        taxableamount:taxableamount,
-        type:type,
-        qt:qt,
-        gstamount : gstamount,
-        total:total,
+        gst: numGst,
+        rate: rate,
+        taxableamount: taxableamount,
+        type: type,
+        qt: qt,
+        gstamount: gstamount,
+        total: total,
         ...restBody
     }
 
     console.log(req.body)
-      
-    
 
-    
+
+
+
 
     console.log(insertValues)
 
-
-
-    //update Product Collection
-    // const updateProducts = async() => {
-    // console.log("updateProducts")
-    //     findProduct = await productSchema.findOne({ product: product })
-    //     if (findProduct) {
-    //         //update Product Quantity
-    //         prevQt = findProduct.qt
-    //         newQt = prevQt + qt
-
-    //         const updateQt = await productSchema.updateOne({ product: product }, { $set: { qt: newQt } })
-    // console.log(updateQt)
-
-    //     }
-    //     if (!findProduct) {
-    //         // insert New Product
-    //         const insert = await new productSchema({
-    //             product:product,
-    //             hsnno:hsnno,
-    //             mrp:mrp,
-    //             qt:qt,
-    //             rate:rate,
-    //             gst:gst
-    //         })
-    //         await insert.save((err, doc) => {
-    //             if (err) {
-    // console.log("error", err)                   
-    //             }
-    //             if (doc) {
-    // console.log("doc", doc)                   
-
-    //             }
-    //         })
-    //     }
-    // }
-
-    //Insert tempItem Collection
 
 
 
@@ -225,7 +187,7 @@ sales.post("/tempItems", async (req, res) => {
             // updateProducts()
         }
     })
-    
+
 })
 
 sales.get("/tempItems", async (req, res) => {
